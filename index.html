@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Commissions | Midwest Modding Studio</title>
+<meta name="description" content="Custom Farming Simulator mods from Midwest Modding Studio: new models, conversions, configurations and animations, built to a written scope.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050607;
+    --surface: #0f1215;
+    --surface-2: #151a1f;
+    --line: #262c33;
+    --steel-hi: #ffffff;
+    --steel-mid: #c3c9cf;
+    --steel-lo: #7f878f;
+    --ink: #e6e9ec;
+    --muted: #9aa3ab;
+    --blue: #1e8ff2;
+    --blue-hi: #4fb0ff;
+    --blue-deep: #0a4f96;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Barlow", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 {
+    font-family: "Russo One", "Arial Black", sans-serif;
+    font-weight: 400;
+    line-height: 1.12;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .steel {
+    background: linear-gradient(180deg, var(--steel-hi) 0%, var(--steel-mid) 55%, var(--steel-lo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  a { color: inherit; }
+
+  /* Header */
+  header.top {
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #0b0e11, var(--bg));
+  }
+  header.top .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding-top: 14px; padding-bottom: 14px;
+  }
+  .brand {
+    font-family: "Russo One", sans-serif; font-size: 16px;
+    text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none;
+  }
+  .brand .blue { color: var(--blue); }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--ink);
+    border: 1px solid var(--line); padding: 4px 12px; border-radius: 999px;
+    white-space: nowrap; background: var(--surface);
+  }
+  .status::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue-hi); box-shadow: 0 0 8px var(--blue);
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 40px 0 64px;
+    background: radial-gradient(ellipse 60% 45% at 50% 38%, rgba(30, 143, 242, 0.12), transparent 70%);
+  }
+  .hero img {
+    display: block; width: 100%; max-width: 480px; height: auto;
+    margin: 0 auto 28px;
+    mix-blend-mode: lighten;
+  }
+  .hero h1 { font-size: clamp(28px, 4.6vw, 44px); max-width: 22ch; margin: 0 auto; }
+  .hero p.lead { color: var(--muted); font-size: 19px; max-width: 58ch; margin: 18px auto 30px; }
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: "Russo One", sans-serif; font-size: 18px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(180deg, var(--blue-hi) 0%, var(--blue) 45%, var(--blue-deep) 100%);
+    border: 2px solid var(--steel-mid);
+    padding: 12px 28px; border-radius: 6px;
+    box-shadow: 0 0 18px rgba(30, 143, 242, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { box-shadow: 0 0 26px rgba(30, 143, 242, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.35); transform: translateY(-1px); }
+  .btn:focus-visible { outline: 3px solid var(--blue-hi); outline-offset: 3px; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+
+  /* Sections */
+  section.block { padding: 64px 0; border-top: 1px solid var(--line); }
+  .eyebrow {
+    font-family: "Russo One", sans-serif; text-transform: uppercase;
+    letter-spacing: 0.16em; font-size: 14px; color: var(--blue);
+    margin: 0 0 10px;
+  }
+  section.block h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 10px; }
+  .intro { color: var(--muted); max-width: 62ch; margin: 0 0 32px; }
+
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .card {
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--blue);
+    border-radius: 6px; padding: 20px;
+  }
+  .card h3 { font-size: 17px; margin-bottom: 8px; color: var(--steel-hi); }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  ol.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); counter-reset: step; }
+  ol.steps li {
+    counter-increment: step;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line); border-radius: 6px; padding: 20px;
+  }
+  ol.steps li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block; font-family: "Russo One", sans-serif;
+    font-size: 32px; line-height: 1; margin-bottom: 12px;
+    color: var(--blue); text-shadow: 0 0 12px rgba(30, 143, 242, 0.45);
+  }
+  ol.steps h3 { font-size: 17px; margin-bottom: 8px; color: var(--steel-hi); }
+  ol.steps p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  .split { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .rule { padding-left: 16px; border-left: 3px solid var(--blue-deep); margin: 0 0 18px; }
+  .rule strong { display: block; font-size: 17px; color: var(--steel-hi); }
+  .rule span { color: var(--muted); font-size: 16px; }
+
+  .cta {
+    text-align: center; padding: 64px 0;
+    border-top: 1px solid var(--line);
+    background: radial-gradient(ellipse 55% 70% at 50% 100%, rgba(30, 143, 242, 0.14), transparent 70%);
+  }
+  .cta h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  .cta p { color: var(--muted); margin: 0 auto 28px; max-width: 52ch; }
+
+  footer { padding: 28px 0; color: var(--steel-lo); font-size: 14px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .brand { font-size: 14px; }
+    .hero { padding-top: 12px; }
+    section.block { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="steel">Midwest</span> <span class="blue">Modding Studio</span></a>
+    <span class="status">Commissions open</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <img src="logo.jpg" width="900" height="721" alt="Midwest Modding Studio, established 2026">
+      <h1 class="steel">Custom Farming Simulator mods, built to a written scope</h1>
+      <p class="lead">New equipment, conversions, configurations and animations for Farming Simulator. Every project starts with a written quote and agreement, so you know exactly what you are getting, what it costs, and when to expect it.</p>
+      <a class="btn js-request" href="#">Request a commission</a>
+      <p class="note">Submitting a request is free and does not commit you to anything.</p>
+    </div>
+  </section>
+
+  <section class="block" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2 class="steel">What MMS builds</h2>
+      <p class="intro">If your idea doesn't fit one of these, send a request anyway and describe it. Every request is reviewed individually.</p>
+      <div class="grid">
+        <div class="card"><h3>New models</h3><p>Equipment built for the game from your references and specifications.</p></div>
+        <div class="card"><h3>Conversions</h3><p>Bringing existing equipment over to Farming Simulator 25.</p></div>
+        <div class="card"><h3>Mod changes</h3><p>Changes and additions to an existing mod.</p></div>
+        <div class="card"><h3>Configurations</h3><p>Color, wheel, attachment and option configurations for the shop.</p></div>
+        <div class="card"><h3>Animations</h3><p>Moving parts, folding, doors and other animated functions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="process">
+    <div class="wrap">
+      <p class="eyebrow">Process</p>
+      <h2 class="steel">How it works</h2>
+      <p class="intro">Four steps from idea to delivered mod. Work starts only after you have approved a written scope and paid the deposit.</p>
+      <ol class="steps">
+        <li><h3>Send a request</h3><p>Describe the mod, the features you want, and any references. Takes about ten minutes.</p></li>
+        <li><h3>Get a quote</h3><p>MMS reviews it and sends a written agreement listing every deliverable, the price and the timeline.</p></li>
+        <li><h3>Approve and pay</h3><p>You review the agreement and accept it online. Work starts once the deposit is received.</p></li>
+        <li><h3>Build and delivery</h3><p>Your mod is built to the agreed scope, with the included revision rounds, then delivered.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="terms">
+    <div class="wrap">
+      <p class="eyebrow">Terms</p>
+      <h2 class="steel">Clear scope, no surprises</h2>
+      <p class="intro">Every commission is priced on a written list of deliverables. Here is how the rest works.</p>
+      <div class="split">
+        <div>
+          <p class="rule"><strong>Only what is listed is included.</strong><span>Your agreement lists every deliverable. Anything not on that list is outside the commission.</span></p>
+          <p class="rule"><strong>Add-ons use a change order.</strong><span>Want something extra mid-project? You get a written change order with the price and any change to the delivery date. Nothing extra is started until you approve it. Minor additions start at $5.</span></p>
+          <p class="rule"><strong>Defects are fixed free.</strong><span>If a listed deliverable doesn't work as described, MMS fixes it at no charge.</span></p>
+        </div>
+        <div>
+          <p class="rule"><strong>Every project is quoted individually.</strong><span>Price depends on the size and complexity of the work. You see the full price before you agree to anything.</span></p>
+          <p class="rule"><strong>Deposit to start, balance before delivery.</strong><span>Exact amounts and payment terms are set out in your agreement.</span></p>
+          <p class="rule"><strong>Publishing rights stay with MMS.</strong><span>You can use your mod in your own game and on multiplayer servers you play on. Only MMS publishes it publicly on mod sites.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 class="steel">Have an idea for a mod?</h2>
+      <p>Send a request with as much detail as you can. MMS will review it and get back to you by your preferred contact method.</p>
+      <a class="btn js-request" href="#">Request a commission</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year">2026</span> Midwest Modding Studio</span>
+    <span>Farming Simulator is a trademark of GIANTS Software. MMS is not affiliated with GIANTS Software.</span>
+  </div>
+</footer>
+
+<script>
+  // Paste the request form link between the quotes below.
+  var REQUEST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdq3SC1q82G_3tGVDzCLvCpxuarckRJXW8g5xk2dWQfMryZTA/viewform";
+
+  var links = document.querySelectorAll(".js-request");
+  for (var i = 0; i < links.length; i++) {
+    if (REQUEST_FORM_URL) {
+      links[i].href = REQUEST_FORM_URL;
+      links[i].target = "_blank";
+      links[i].rel = "noopener";
+    }
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
